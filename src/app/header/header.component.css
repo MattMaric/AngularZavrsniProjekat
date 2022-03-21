@@ -1,0 +1,43 @@
+#nav-bar-2 {
+    display: none;
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+    .active {
+        text-align: left;
+        justify-content: start;
+    }
+    #logoImg1{
+        display: block;
+        text-align: left;
+        justify-content: start;
+    }
+    #icons-div1 {
+        text-align: left; 
+        justify-content: start;
+        display: inline-block;
+    }
+    #nav-bar-1 {
+        display: none;
+    }
+    #nav-bar-2 {
+        display: block;
+    }
+}
+
+@media (max-width: 575px) {
+    .active{
+        text-align: left;
+        justify-content: start;
+    }
+    #logoImg1 {
+        display: block;
+        text-align: left;
+        justify-content: start;
+    }
+    #icons-div1 {
+        text-align: left; 
+        justify-content: start;
+        display: inline-block;
+    }
+}

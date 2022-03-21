@@ -1,0 +1,10 @@
+#side-bar-div {
+    position: fixed;
+    right: 0;
+    bottom: 25%;
+    background-color: white;
+    width: 20px;
+    padding: 3px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}

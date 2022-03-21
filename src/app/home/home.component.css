@@ -1,0 +1,193 @@
+#flowerBackgroundImg {
+    margin-top: 0px;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+.flowerBackgroundDiv {
+    position: relative;
+}
+.flowerBackgroundDiv-2 {
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    text-align: right;
+    width: 300px;
+    font-size: smaller;
+    line-height: 15px;
+}
+#shop-button {
+    font-size: 12px;
+}
+#text-container {
+    padding: 3% 15% 3% 15%;
+}
+.container-grid {
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    grid-template-rows: 250px 250px;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 5px;
+    row-gap: 45px;
+}
+.grid-img {
+    object-fit: fill;
+    height: 250px;
+    width: 250px;
+}
+.flower-text {
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+}
+.load-button-div, .send-button-div {
+    justify-content: center;
+    text-align: center;
+}
+#load-button, #send-button {
+    font-size: 12px;
+}
+.float1 {
+    float: left;
+    line-height: 1rem;
+    font-size: 13px;
+    margin-left: 2.7%;
+    margin-bottom: 2%;
+}
+.float2 {
+    float: right;
+    width: 55%;
+    margin-right: 2.7%;
+    margin-bottom: 2%;
+}
+.form-control {
+    border: 2px solid rgb(167, 166, 166);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    font-size: 12px;
+}
+.input1 {
+    height: 40px;
+}
+.input2 {
+    height: 65px;
+}
+.form-label, #news, .btn-dark {
+    font-size: 12px;
+}
+#news {
+    width: 100%;
+    height: 28px;
+}
+.container-fluid { 
+    overflow: hidden;
+    height: 330px;
+    padding: 0%;
+}
+.pink-div {
+    background-color: rgb(255, 154, 171);
+    float: left;
+    width: 50%;
+    height: 330px;
+}
+.pink-div2 {
+    color: white;
+    justify-content: center;
+    text-align: center;
+    padding: 17% 10%;
+}
+#shop-button2 {
+    border-radius: 10px;
+    font-size: 10px;
+    padding: 1px 3px 1px 3px;
+}
+.div-next-to-pink {
+    height: 330px;
+    width: 50%;
+    float: right;
+}
+#img-next-to-pink {
+    object-fit: cover;
+    width: 100%;
+    height: 330px;
+}
+
+@media (min-width: 576px) and (max-width: 1072px) {
+    .container-grid {
+        display: grid;
+        grid-template-columns: 250px 250px;
+        justify-content: center;
+        gap: 18px;
+        margin-top: 5px;
+        row-gap: 45px;
+    }
+    #flowerBackgroundImg {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+    }
+    .pink-div, .div-next-to-pink, #img-next-to-pink, .container-fluid {
+        height: 300px;
+    }
+    .pink-div2 {
+        padding: 22% 10%;
+    }
+    #shop-button2 {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 575px) {
+    .container-grid {
+        display: grid;
+        grid-template-columns: 250px;
+        justify-content: center;
+        gap: 18px;
+        margin-top: 5px;
+        row-gap: 45px;
+    }
+    #flowerBackgroundImg {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    #spring-spam {
+        font-size: 12px;
+    }
+    #shop-button {
+        font-size: 10px;
+    }
+    h4 {
+        font-size: 18px;
+    }
+    #wishes-div-text {
+        font-size: 12px;
+    }
+    #shop-button2 {
+        font-size: 10px;
+    }
+    .container-fluid {
+        height: fit-content;
+    }
+    .pink-div, .div-next-to-pink {
+        float: none;
+        width: 100%;
+    }
+    .pink-div2 {
+        padding: 20% 10%;
+    }
+    .float1 {
+        float: none;
+        width: 100%;
+    }
+    .float2 {
+        float: none;
+        width: 100%;
+    }
+}
