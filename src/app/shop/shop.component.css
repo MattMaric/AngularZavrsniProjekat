@@ -1,0 +1,20 @@
+.imgs-category {
+    border-bottom: 3px solid pink;
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+    .imgs-category{
+        width: 40%;
+    }
+}
+
+@media (max-width: 575px) {
+    /*.imgs-category{
+        width: 10px;
+    }*/
+    .text-center {
+        width: 25%;
+        justify-content: center;
+        text-align: center;
+    }
+}

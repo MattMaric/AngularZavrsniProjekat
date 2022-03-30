@@ -7,6 +7,20 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { SocialSidebarComponent } from './social-sidebar/social-sidebar.component';
+import { ShopComponent } from './shop/shop.component';
+import { RouterModule, Routes } from '@angular/router';
+import { SimpathyComponent } from './shop/simpathy/simpathy.component';
+import { AnniversaryComponent } from './shop/anniversary/anniversary.component';
+import { CongrulationsComponent } from './shop/congrulations/congrulations.component';
+import { GetWellComponent } from './shop/get-well/get-well.component';
+import { ProductComponent } from './product/product.component';
+import { SimpathyService } from './shop/simpathy.service'
+import { AnniversaryService } from './shop/anniversary.service';
+import { CongrulationsService } from './shop/congrulations.service';
+import { GetWellService } from './shop/getWell.service';
+/*import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';*/
+import { ShoppingCartService } from './shop/shoppingCart.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +28,24 @@ import { SocialSidebarComponent } from './social-sidebar/social-sidebar.componen
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    SocialSidebarComponent
+    SocialSidebarComponent,
+    ShopComponent,
+    SimpathyComponent,
+    AnniversaryComponent,
+    CongrulationsComponent,
+    GetWellComponent,
+    ProductComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SimpathyService,
+              AnniversaryService, 
+              CongrulationsService, 
+              GetWellService,
+              ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

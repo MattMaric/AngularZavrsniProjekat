@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="mt-2" style="font-size: 12px;">
+        <div style="float: left;">
+            {{newProduct.path}}{{newProduct.name}}
+        </div>
+        <div style="float: right;">
+            <a (click)="updatePrev(newProduct)"><span>< Prev </span></a>|
+            <a (click)="updateNext(newProduct)"><span> Next ></span></a>
+        </div>
+    </div>
+    <br><br>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-12 text-end">
+            <img src="{{newProduct.src}}" width="280px" id="{{newProduct.id}}">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div><h5>{{newProduct.name}}</h5></div>
+            <div><h6>{{newProduct.price}}$</h6></div>
+            <div style="font-size: 12px;">
+                {{newProduct.text}}
+            </div>
+            <hr>
+            <div style="width: 100px">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" class="form-control mt-1" #quantity>
+                <button class="btn btn-dark btn-sm mt-1" 
+                (click)="boughtProducts(quantity.value, newProduct.id, newProduct.name, newProduct.price)">
+                    Add to cart</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -40,4 +40,10 @@
         justify-content: start;
         display: inline-block;
     }
+    #nav-bar-1 {
+        display: none;
+    }
+    #nav-bar-2 {
+        display: block;
+    }
 }

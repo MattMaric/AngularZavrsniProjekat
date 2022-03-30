@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+    .text-end {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+}

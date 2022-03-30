@@ -1,0 +1,12 @@
+<div class="container mt-3">
+    <div class="container-grid-2">
+        <div *ngFor="let product4 of products4" class="text-center">
+            <img src="{{product4.src}}" width="250px" id="{{product4.id}}"
+            [routerLink]="['/product', product4.id, product4.name, product4.price, product4.src, product4.path, product4.text]">
+            <div>
+                <strong>{{product4.name}}</strong><br>
+                {{product4.price}}$
+            </div>
+        </div>
+    </div>
+</div>
