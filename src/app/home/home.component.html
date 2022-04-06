@@ -100,28 +100,31 @@
     </div>
     <br>
     <div class="float2">
-        <form>
+        <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control input1" placeholder="Name" name="name1">
+                    <input type="text" class="form-control input1" placeholder="Name" name="name1"
+                    id="name" ngModel name="name">
                 </div>
                 <div class="col">
-                    <input type="email" class="form-control input1" placeholder="Email" name="email1">
+                    <input type="email" class="form-control input1" placeholder="Email" name="email1"
+                    id="email" ngModel name="email">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control input1" placeholder="Subject" name="subject1">
+                    <input type="text" class="form-control input1" placeholder="Subject" name="subject1"
+                    id="subject" ngModel name="subject">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <textarea placeholder="Message" class="form-control input2" 
-                        style="resize: none"></textarea>
+                    style="resize: none" id="message" ngModel name="message"></textarea>
                 </div>
             </div>
             <div class="send-button-div">
-                <button type="button" id="send-button" class="btn btn-outline-secondary btn-sm mt-2">
+                <button type="submit" id="send-button" class="btn btn-outline-secondary btn-sm mt-2">
                     Send</button>
             </div>
             <br>
@@ -133,7 +136,8 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input type="email" id="news" placeholder="Enter your email here" name="email2">
+                        <input type="email" id="news" placeholder="Enter your email here" name="email2"
+                        id="email2" ngModel name="email2">
                     </div>
                     <div class="col">
                         <button type="button" class="btn btn-dark btn-sm">Subscribe Now</button>

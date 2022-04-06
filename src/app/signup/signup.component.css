@@ -1,0 +1,35 @@
+.form-control {
+    width: 200px;
+    font-size: 10px;
+}
+.row {
+    width: 250px !important;
+    display: inline-block;
+    padding-top: 55px;
+}
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+.invalid-msg {
+    font-size: 12px;
+    color: red;
+}
+.form-group {
+    font-size: 14px;
+    padding-left: 12px;
+}
+#imgdiv2 {
+    background-image: url(../../assets/img3/loginBackground.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+.container {
+    height: 36em;
+    width: 70em;
+}
+form {
+    font-size: 10px;
+}

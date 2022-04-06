@@ -1,1 +1,42 @@
-<p>shopping-cart works!</p>
+<div class="container">
+    <div class="text-center mt-3" *ngIf="currentQuantity == 0">
+        <h2>Shopping cart is empty</h2>
+    </div>
+    <div>
+        <table class="table">
+            <tbody>
+            <tr *ngFor="let boughtP of boughtProductList">
+                <td style="width: 100px">
+                    <img src="{{boughtP.src}}" width="100px"> 
+                </td>
+                <td>{{boughtP.name}} <br><br> <span (click)="deleteRow(boughtP); 
+                    onRemove(boughtP.sum, boughtP.quantity)">
+                    Remove</span></td>
+                <td>{{boughtP.price}}$</td>
+                <td><input type="number" min="1" style="width: 50px;" value="{{boughtP.quantity}}"></td>
+                <td><span>{{boughtP.sum}}</span>$</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="float: right; width: 450px;" *ngIf="currentQuantity > 0">
+        <div class="row">
+            <div class="col-6">Subtotal:</div>
+            <div class="col-6" style="text-align: right;">{{subtotal}}$</div>
+        </div>
+        <div class="row">
+            <span class="col-6">Shipping:</span>
+            <span class="col-6" style="text-align: right;" 
+            *ngIf="subtotal < 100;else shipping">100$</span>
+            <ng-template #shipping><span class="col-6" style="text-align: right;">FREE$</span></ng-template>
+        </div>
+        <hr class="m-0">
+        <div class="row">
+            <span class="col-6">Total:</span>
+            <span class="col-6" style="text-align: right;">{{total}}$</span>
+        </div>
+        <div class="row" style="text-align: right; justify-content: end;">
+            <button class="btn btn-dark" style="width: 100px;" routerLink="/product-order">Checkout</button>
+        </div>
+    </div>
+</div>

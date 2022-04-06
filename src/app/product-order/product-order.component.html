@@ -1,0 +1,65 @@
+<div class="container text-center">
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+        <div class="form-floating mt-3 form-group" style="text-align: left;">
+            <input type="text" class="form-control" id="orderFname" placeholder="First Name:" 
+            formControlName="orderFname">
+            <label for="orderFname">First Name:<span style="color: red;">*</span></label>
+            <span class="invalid-msg2" 
+            *ngIf="!orderForm.controls['orderFname'].valid && orderForm.controls['orderFname'].touched">
+            First name is required.</span>
+        </div>
+        <div class="form-floating mt-3 form-group" style="text-align: left;">
+            <input type="text" class="form-control" id="orderLname" placeholder="Last Name:" 
+            formControlName="orderLname">
+            <label for="orderLname">Last Name:<span style="color: red;">*</span></label>
+            <span class="invalid-msg2" 
+            *ngIf="!orderForm.controls['orderLname'].valid && orderForm.controls['orderLname'].touched">
+            Last name is required.</span>
+        </div>
+        <div class="form-floating mt-3 form-group" style="text-align: left;">
+            <input type="email" class="form-control" id="orderEmail" placeholder="Email Address:" 
+            formControlName="orderEmail">
+            <label for="orderEmail">Email Address:<span style="color: red;">*</span></label>
+            <span class="invalid-msg2" 
+            *ngIf="!orderForm.controls['orderEmail'].valid && orderForm.controls['orderEmail'].touched">
+            Email is required.</span>
+        </div>
+        <div class="form-floating mt-3 form-group" style="text-align: left;">
+            <input type="text" class="form-control" id="orderPhone" placeholder="Phone Number:" 
+            formControlName="orderPhone">
+            <label for="orderPhone">Phone Number:<span style="color: red;">*</span></label>
+            <span class="invalid-msg2" 
+            *ngIf="!orderForm.controls['orderPhone'].valid && orderForm.controls['orderPhone'].touched">
+            Phone number is required.</span>
+        </div>
+        <div class="form-floating mt-3 form-group" style="text-align: left;">
+            <input type="text" class="form-control" id="orderAddress" placeholder="Address:" 
+            formControlName="orderAddress">
+            <label for="orderAddress">Address:<span style="color: red;">*</span></label>
+            <span class="invalid-msg2" 
+            *ngIf="!orderForm.controls['orderAddress'].valid && orderForm.controls['orderAddress'].touched">
+            Address is required.</span>
+        </div>
+        <div class="form-floating mt-3 form-group">
+            <textarea class="form-control" id="orderComment" placeholder="Comment:" 
+            formControlName="orderComment"></textarea>
+            <label for="orderComment">Comment:</label>
+        </div>
+        <div class="form-floating mb-3 mt-3 form-group" style="text-align: left;">
+            <div style="text-align: left;">Payment Method:<span style="color: red;">*</span></div>
+            <select type="email" class="form-control" id="orderPayment" placeholder="Payment Method:" 
+            formControlName="orderPayment">
+                <option>Credit Card</option>
+                <option>PayPal</option>
+                <option>Payment on Delivery</option>
+            </select>
+            <span class="invalid-msg2" 
+            *ngIf="!orderForm.controls['orderPayment'].valid && orderForm.controls['orderPayment'].touched">
+            Payment method is required.</span>
+        </div>
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-dark text-center" [disabled]="!orderForm.valid" 
+            >Confirm</button>
+        </div>
+    </form>
+</div>

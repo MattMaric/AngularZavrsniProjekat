@@ -13,7 +13,7 @@ import { ShoppingCartService } from 'app/shop/shoppingCart.service';
 })
 export class ProductComponent implements OnInit {
   newProduct!: { id: number; name: string; price: number; src: string; path: string; text: string; };
-  boughtProduct!: { id: number; name: string; price: number; quantity: number }
+  boughtProduct!: { id: number; name: string; price: number; quantity: number; src: string; sum: number }
 
   constructor(
     private route: ActivatedRoute,
@@ -106,7 +106,6 @@ export class ProductComponent implements OnInit {
     } else if (this.getWellService.products4.some(function(el) {
       return el.name === newProduct.name;
     })) {
-      console.log(newProduct)
       var newProduct2 = this.getWellService.products4.findIndex(prod => prod.id == newProduct.id);
       var newProduct3 = this.getWellService.products4[newProduct2 - 1];
 
@@ -222,21 +221,30 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  boughtProducts(newQuantity : string, newId: number, newName: string, newPrice: number) {
+  boughtProducts(newQuantity : string, newId: number, newName: string, newPrice: number, newSrc: string) {
       let id = newId *1;
       let quantity = parseInt(newQuantity);
       let name = newName;
       let price = newPrice;
+      let src = newSrc;
+      let sum = price * quantity;
 
       this.boughtProduct = {
         id: id,
         name: name,
         price: price,
-        quantity: quantity
+        quantity: quantity,
+        src: src,
+        sum: sum
       }
 
-    this.shoppingCartService.addToCart(this.boughtProduct, newId, newName, newPrice)
+    this.shoppingCartService.addToCart(newId, newName, newPrice, parseInt(newQuantity), newSrc, sum )
     };
+
+    changeQuantity(quantity: string) {
+      var quantity2 = parseInt(quantity);
+      this.shoppingCartService.changeQuantity(quantity2)
+    }
         
 }
 
