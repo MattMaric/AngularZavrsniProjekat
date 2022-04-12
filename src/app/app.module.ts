@@ -18,13 +18,17 @@ import { SimpathyService } from './shop/simpathy.service'
 import { AnniversaryService } from './shop/anniversary.service';
 import { CongrulationsService } from './shop/congrulations.service';
 import { GetWellService } from './shop/getWell.service';
-import { ShoppingCartService } from './shop/shoppingCart.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductOrderComponent } from './product-order/product-order.component';
+import { AboutComponent } from './about/about.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryFlowers } from './shared/in-memory-flowers';
+import { FlowersService } from './shared/flowers.service';
 
 @NgModule({
   declarations: [
@@ -44,18 +48,22 @@ import { ProductOrderComponent } from './product-order/product-order.component';
     SignupComponent,
     ShoppingCartComponent,
     ProductOrderComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule, HttpClientInMemoryWebApiModule.forRoot (
+      InMemoryFlowers, {dataEncapsulation: false}
+    )
   ],
   providers: [SimpathyService,
               AnniversaryService, 
               CongrulationsService, 
               GetWellService,
-              ShoppingCartService],
+              FlowersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

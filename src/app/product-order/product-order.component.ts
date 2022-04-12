@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ShoppingCartService } from 'app/shop/shoppingCart.service';
+import { FlowersService } from 'app/shared/flowers.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -16,13 +16,14 @@ export class ProductOrderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private shoppingCartService: ShoppingCartService) { }
+    private flowersService: FlowersService)
+     { }
 
   onSubmit() {
     console.log(this.orderForm)
-    this.shoppingCartService.boughtProductList = [];
-    this.shoppingCartService.currentQuantity = 0;
-    this.shoppingCartService.changeQuantity(this.shoppingCartService.currentQuantity);
+    this.flowersService.flowers = [];
+    this.flowersService.currentQuantity = 0;
+    this.flowersService.changeQuantity(this.flowersService.currentQuantity);
     this.router.navigate(['']);
   }
 

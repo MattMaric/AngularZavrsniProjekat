@@ -4,7 +4,8 @@ import { SimpathyService } from 'app/shop/simpathy.service';
 import { AnniversaryService } from 'app/shop/anniversary.service';
 import { CongrulationsService } from 'app/shop/congrulations.service';
 import { GetWellService } from 'app/shop/getWell.service';
-import { ShoppingCartService } from 'app/shop/shoppingCart.service';
+import { FlowersService } from 'app/shared/flowers.service';
+import { Flower } from 'app/shared/Flower';
 
 @Component({
   selector: 'app-product',
@@ -13,7 +14,7 @@ import { ShoppingCartService } from 'app/shop/shoppingCart.service';
 })
 export class ProductComponent implements OnInit {
   newProduct!: { id: number; name: string; price: number; src: string; path: string; text: string; };
-  boughtProduct!: { id: number; name: string; price: number; quantity: number; src: string; sum: number }
+  boughtProduct!: { id: number; name: string; price: number; quantity: number; src: string; sum: number };
 
   constructor(
     private route: ActivatedRoute,
@@ -21,7 +22,7 @@ export class ProductComponent implements OnInit {
     private anniversaryService: AnniversaryService,
     private congrulationsService: CongrulationsService,
     private getWellService: GetWellService,
-    public shoppingCartService: ShoppingCartService
+    private flowersService: FlowersService
     ) { }
 
   ngOnInit() {
@@ -221,7 +222,7 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  boughtProducts(newQuantity : string, newId: number, newName: string, newPrice: number, newSrc: string) {
+  boughtProducts(newQuantity: string, newId: number, newName: string, newPrice: number, newSrc: string) {
       let id = newId *1;
       let quantity = parseInt(newQuantity);
       let name = newName;
@@ -238,12 +239,12 @@ export class ProductComponent implements OnInit {
         sum: sum
       }
 
-    this.shoppingCartService.addToCart(newId, newName, newPrice, parseInt(newQuantity), newSrc, sum )
+    this.flowersService.addToCart(id, name, price, quantity, src, sum);
     };
 
     changeQuantity(quantity: string) {
       var quantity2 = parseInt(quantity);
-      this.shoppingCartService.changeQuantity(quantity2)
+      this.flowersService.changeQuantity(quantity2)
     }
         
 }

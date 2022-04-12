@@ -5,16 +5,18 @@
     <div>
         <table class="table">
             <tbody>
-            <tr *ngFor="let boughtP of boughtProductList">
+            <tr *ngFor="let flower of flowers">
                 <td style="width: 100px">
-                    <img src="{{boughtP.src}}" width="100px"> 
-                </td>
-                <td>{{boughtP.name}} <br><br> <span (click)="deleteRow(boughtP); 
-                    onRemove(boughtP.sum, boughtP.quantity)">
+                    <img src="{{flower.src}}" width="100px"> 
+                </td> <!-- <span (click)="deleteRow(boughtP); 
+                    onRemove(boughtP.sum, boughtP.quantity)"> -->
+                <td>{{flower.name}} <br><br> <span (click)="deleteRow(flower); 
+                    onRemove(flower.sum, flower.quantity)">
                     Remove</span></td>
-                <td>{{boughtP.price}}$</td>
-                <td><input type="number" min="1" style="width: 50px;" value="{{boughtP.quantity}}"></td>
-                <td><span>{{boughtP.sum}}</span>$</td>
+                <td>{{flower.price}}$</td>
+                <td><input type="number" min="1" style="width: 50px;" value="{{flower.quantity}}" 
+                    (change)="changeFlowerFunc(flQty.value, flower)" #flQty></td>
+                <td><span>{{flower.sum}}</span>$</td>
             </tr>
             </tbody>
         </table>

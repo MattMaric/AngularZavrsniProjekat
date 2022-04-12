@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShoppingCartService } from 'app/shop/shoppingCart.service';
+import { FlowersService } from 'app/shared/flowers.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,13 +12,13 @@ export class HeaderComponent implements OnInit {
   quantitySubscription!: Subscription;
 
   constructor(
-    private shoppingCartService : ShoppingCartService
+    private flowersService: FlowersService
   ) { }
 
   public numOfProducts = 0;
 
   ngOnInit(): void {
-    this.quantitySubscription = this.shoppingCartService.getQuantity().subscribe((num)=>{
+    this.quantitySubscription = this.flowersService.getQuantity().subscribe((num)=>{
       this.numOfProducts = num;
     })
   }
