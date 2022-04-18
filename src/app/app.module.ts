@@ -29,6 +29,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryFlowers } from './shared/in-memory-flowers';
 import { FlowersService } from './shared/flowers.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from 'environments/environment';
 
 @NgModule({
   declarations: [
@@ -57,7 +63,12 @@ import { FlowersService } from './shared/flowers.service';
     ReactiveFormsModule,
     HttpClientModule, HttpClientInMemoryWebApiModule.forRoot (
       InMemoryFlowers, {dataEncapsulation: false}
-    )
+    ),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [SimpathyService,
               AnniversaryService, 

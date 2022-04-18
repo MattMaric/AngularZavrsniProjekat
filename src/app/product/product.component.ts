@@ -6,6 +6,7 @@ import { CongrulationsService } from 'app/shop/congrulations.service';
 import { GetWellService } from 'app/shop/getWell.service';
 import { FlowersService } from 'app/shared/flowers.service';
 import { Flower } from 'app/shared/Flower';
+import { AuthService } from 'app/shared/auth.service';
 
 @Component({
   selector: 'app-product',
@@ -15,6 +16,7 @@ import { Flower } from 'app/shared/Flower';
 export class ProductComponent implements OnInit {
   newProduct!: { id: number; name: string; price: number; src: string; path: string; text: string; };
   boughtProduct!: { id: number; name: string; price: number; quantity: number; src: string; sum: number };
+  isShown: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +24,8 @@ export class ProductComponent implements OnInit {
     private anniversaryService: AnniversaryService,
     private congrulationsService: CongrulationsService,
     private getWellService: GetWellService,
-    private flowersService: FlowersService
+    private flowersService: FlowersService,
+    public authService: AuthService
     ) { }
 
   ngOnInit() {
@@ -246,7 +249,11 @@ export class ProductComponent implements OnInit {
       var quantity2 = parseInt(quantity);
       this.flowersService.changeQuantity(quantity2)
     }
-        
+    
+    checkIsLogged() {
+      this.isShown = this.authService.isLoggedIn;
+      console.log(this.isShown);
+    }
 }
 
 

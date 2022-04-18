@@ -22,10 +22,10 @@ export class FlowersService {
     getQuantity() {
         return this.quantitySum.asObservable();
     }
-    
+
     addToCart(someId: number, someName: string, somePrice: number, someQuantity: number, someSrc: string, sum: number) {
-        if (this.flowers.find(c => c.id === someId)) {
-            let index = this.flowers.findIndex(c => c.id === someId);
+        let index = this.flowers.findIndex(c => c.id === someId);
+        if (this.flowers[index]) {
             let quant1 = this.flowers[index].quantity;
             let quant2 = quant1 + someQuantity
             this.flowers[index].quantity = quant2

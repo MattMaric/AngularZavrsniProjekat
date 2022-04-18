@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'app/shared/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,6 +14,7 @@ export class SignupComponent implements OnInit {
   lastName = "";
   signupEmail = "";
   signupPassword = "";
+  isShown2: boolean = true;
 
   onSubmit(form: NgForm) {
     console.log(this.signupForm)
@@ -20,12 +22,25 @@ export class SignupComponent implements OnInit {
     this.lastName = this.signupForm.value.lastName;
     this.signupEmail = this.signupForm.value.signupEmail;
     this.signupPassword = this.signupForm.value.signupPassword;
-    
+  }
+  
+  signUp(email: string, password: string){
+    this.authService.signUp(email, password);
   }
 
-  constructor() { }
+  sendEmailVer() {
+    this.isShown2 = false;
+    this.authService.SendVerificationMail();
+  }
+
+  sendVerificationEmail(){
+    this.authService.SendVerificationMail();
+  }
+
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
   }
-
 }

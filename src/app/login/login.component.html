@@ -32,7 +32,8 @@
                         </div>
                         <div>
                             <button class="btn btn-light mt-2" style="width: 200px; font-size: 12px;" 
-                            type="submit" [disabled]="!myForm2.valid">Log In</button>
+                            type="submit" [disabled]="!myForm2.valid" 
+                            (click)="logIn(logEmail.value, logPassword.value)">Log In</button>
                         </div>
                     </form>
                 </div>
