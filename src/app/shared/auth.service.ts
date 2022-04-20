@@ -91,5 +91,12 @@ export class AuthService {
         const token = user != null ? user.stsTokenManager.accessToken : null;
         return token;
     }
+
+    SignOut() {
+        return this.angularFireAuth.signOut().then(() => {
+            localStorage.removeItem('user');
+            this.router.navigate(['signup']);
+        });
+    }
     
 }

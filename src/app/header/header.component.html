@@ -38,7 +38,12 @@
                   <i class="fa fa-caret-down"></i>
                 </div>
                 <div style="display: inline; padding-left: 10px; padding-right: 10px;">
-                  <a routerLink="/login" style="color: black; text-decoration: none;">LogIn</a>
+                  <ng-template [ngIf]="!authService.isLoggedIn">
+                    <a routerLink="/login" style="color: black; text-decoration: none;">LogIn</a>
+                  </ng-template>
+                  <ng-template [ngIf]="authService.isLoggedIn">
+                    <a (click)="signOut()" style="color: black; text-decoration: none;">LogOut</a>
+                  </ng-template>
                 </div>
                 <div style="display: inline; padding: 2px;" routerLink="/shopping-cart">
                   <i class="fa fa-shopping-cart position-relative">
